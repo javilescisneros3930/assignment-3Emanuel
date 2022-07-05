@@ -1,0 +1,169 @@
+	<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Event Tickets Order Form</title>
+		<link rel="stylesheet" type="text/css" href="styles/normalize.css">
+		<link rel="stylesheet" type="text/css" href="styles/main.css">		
+	</head>
+
+	<body>
+		<div id="frame">
+			<header>
+				<img src="images/ornament-logo.png" alt="New Year Central Logo" style="width: 400px;">
+				<div id="header-line-1">New Year Central</div>
+				<div id="header-line-2">For the child in all of us!</div>
+			</header>
+
+			<!-- navigation starts -->
+			<nav id="nav_menu">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about_us.html">About Us</a></li>
+					<li><a href="products.html">Our Products</a></li>
+					<li><a href="tickets_order_form.html" class="current">Event Tickets</a></li>
+					<li><a href="contact_us.html">Contact Us</a></li>
+				</ul>
+			</nav>
+
+			<aside>
+				<div class="sidebar-title">Products of The Week...</div>
+				<ul>
+					<li><a href="assets/products/berry-garland.html">Natural Holly Berry Garland, 5f - $74.99</a></li>
+					<li><a href="assets/products/artificial-red-berry-garland.html">Artificial Red Berry and White Edge Holly Leaf Christmas Garland, 5.5f - $38.99</a></li>
+					<li><a href="assets/products/christmas-berries-stems.html">Christmas Berries Red Stems Evergreen Pine Branches, 8pcs - $15.99</a></li>
+				</ul>
+			</aside>
+			
+			<main>
+				<form name="order_form" action="place_order.html" method="post">
+				<h1>Order Event Tickets</h1>
+				<!-- The form starts here... -->
+				<fieldset> <!-- required is on some input and added some validation to the only accept certain parameters. -->
+					<legend>Member Information</legend>
+					<label for="email">E-Mail:</label> 
+					<input type="email" title="Must contain a valid domain: example@example.com" id="email" name="email" value="" required autofocus><br> 
+					<!-- input type email validate the email on submit -->
+					<label for="f_name">First name:</label>
+					<input type="text" id="f_name" name="f_name" title="Must introduce a name of no more than 20 characters." maxlength="20" required><br>
+					<label for="l_name">Last name:</label>
+					<input type="text" id="l_name" name="l_name" value="" title="Must introduce a last name of no more than 20 characters." 
+						maxlength="20" required><br>
+					<label for="address">Address:</label>
+					<input type="text" id="address" name="address" maxlength="30"> <br>
+					<label for="city">City:</label>
+					<input type="text" id="city" name="city" ><br>
+					<label for="province">Province:</label> <!-- Validating the province as 2 character letters not numbers-->
+					<input type="text" id="province" name="province" title="Must contain 2 letters." placeholder="2-character code" pattern="[A-Za-z]{2}"
+						maxlength="2" required><br>
+					<label for="postal_code">Postal Code:</label> <!-- we allow numbers and letters here but only 6 characters-->
+					<input type="text" id="postal_code" title="Must contain 6 alphanumeric characters." name="postal_code" placeholder="6 characters"
+						maxlength="6" pattern="[A-Za-z0-9]{6}" required><br>
+					<label for="phone_number">Phone Number:</label><!-- input type tel, won't allow submit until you provide correct format-->
+					<input type="tel" id="phone_number" name="phone_number" title="Must contain 10 numbers in this format 999-999-9999" pattern="\d{3}[\-]\d{3}[\-]\d{4}" 
+						placeholder="999-999-9999" maxlength="12"><br>
+				</fieldset>
+					
+				<fieldset>
+					<legend>Ordering Information</legend>
+					<label for="event_select">Event:</label>
+					<select name="event_select" id="event_select">
+						<option value="A">Cookie Decoration Contest</option>
+						<option value="B">Tree Decoration Contest</option>
+						<option value="C">Gift of Light Ride-Along</option>
+						<option value="D">Breakfast with Santa</option>
+					</select><br>
+					
+					<label for="order_type">Order Type:</label>
+					<select name="order_type" id="order_type">
+						<option value="M">Member Package</option>
+						<option value="D">Donor Package</option>
+						<option value="S">Single Package</option>
+					</select><br>
+					
+					<label for="number_tickets">Number of Tickets:</label><!-- tickets can be ordered from 1 to 20, because we dont want re-sellers -->
+					<input type="number" min="1" max="20" id="number_tickets" name="number_tickets" placeholder="Number of single tickets" ><br>		
+				</fieldset>
+			
+				
+				<fieldset>
+				<legend>Payment Method</legend>
+				<div id="payment_method">
+					
+					<!-- The radio buttons below are for the payment method added a div to move them left and right-->
+							
+							
+							<label id="bill_label" for="bill_me"><p>Bill Me</p></label>
+							
+							<input type="radio" id="bill_me" name="p_method" value="bill_me"> 
+							
+							<label id="credit_label" for="credit_card"><p>Credit Card</p></label>
+							
+							<input type="radio" id="credit_card" name="p_method" value="credit_card">	
+							
+				</div>
+				</fieldset>
+
+				
+				<fieldset><!-- credit card option selection-->
+					<legend>Credit Card Information</legend>
+					<label for="card_type">Card Type:</label>
+					<select name="card_type" id="card_type">
+							<option value="V">Visa</option>
+							<option value="M">Master Card</option>
+							<option value="D">Discover</option>
+					</select><br>
+					
+					<label for="card_num">Card Number:</label>  <!-- i checked valid number of visa start at 4226 and discover valid # start at x64-->
+					<input type="number" title="Must contain a 16 digit number. First 4 digits start within the range 4226 to 6499 Visa&Discover valid card range." 
+						step="1" min="4226000000000000" max="6499999999999999" id="card_num" name="cardnumber" placeholder="16 digits" required  >
+					<!-- month selection below-->
+					<label for="expiration_date">Expiration Date:</label>
+					<div id="month"> 	<!--this div apply the month id to all the selection of month and year-->
+						
+						<select name="expiration_date" id="expiration_date">
+							<option value="J">January</option>
+							<option value="F">February</option>
+							<option value="C">March</option>
+							<option value="A">April</option>
+							<option value="M">May</option>
+							<option value="J">June</option>
+							<option value="Y">July</option>
+							<option value="G">August</option>
+							<option value="S">September</option>
+							<option value="O">October</option>
+							<option value="N">November</option>
+							<option value="D">December</option>
+						</select>
+					
+					<!-- year selection here from 2021 to 27-->
+					
+						<select name="year_date" id="year_date">
+							<option value="2021">2021</option>
+							<option value="2022">2022</option>
+							<option value="2023">2023</option>
+							<option value="2024">2024</option>
+							<option value="2025">2025</option>
+							<option value="2026">2026</option>
+							<option value="2027">2027</option>
+						</select>
+					</div>
+				</fieldset>
+				
+			
+					<fieldset>
+						<legend>Submit Your Order</legend>
+							<!--submit buttons below -->
+							<input type="submit" name="submit" value="Submit"> <!-- send the data and finish-->
+							<input type="reset" name="reset" value="Reset Fields"> <!-- reset button make all the form blank again. -->
+					</fieldset>
+				
+				</form>
+			</main>
+			
+			<footer>
+				<p>&copy; 2021 New Year Central. Created by Johnny White.</p>
+			</footer>
+		</div>
+	</body>
+</html>
