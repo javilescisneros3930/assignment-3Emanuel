@@ -35,8 +35,8 @@
 				</ul>
 			</aside>
 			
-			<main>
-				<form name="order_form" action="place_order.html" method="post">
+			<main>			<!--using post method and will send the form in the order_form variable and send it to the server using POST method to process it-->
+				<form name="order_form" action="place_order.html" method="post"> 
 				<h1>Order Event Tickets</h1>
 				<!-- The form starts here... -->
 				<fieldset> <!-- required is on some input and added some validation to the only accept certain parameters. -->
@@ -44,12 +44,12 @@
 					<label for="email">E-Mail:</label> 
 					<input type="email" title="Must contain a valid domain: example@example.com" id="email" name="email" value="" required autofocus><br> 
 					<!-- input type email validate the email on submit -->
-					<label for="f_name">First name:</label>
+					<label for="f_name">First name:</label> 		<!--the tittle elements contain text when you hover the mouse-->
 					<input type="text" id="f_name" name="f_name" title="Must introduce a name of no more than 20 characters." maxlength="20" required><br>
-					<label for="l_name">Last name:</label>
+					<label for="l_name">Last name:</label> 			
 					<input type="text" id="l_name" name="l_name" value="" title="Must introduce a last name of no more than 20 characters." 
 						maxlength="20" required><br>
-					<label for="address">Address:</label>
+					<label for="address">Address:</label> 
 					<input type="text" id="address" name="address" maxlength="30"> <br>
 					<label for="city">City:</label>
 					<input type="text" id="city" name="city" ><br>
@@ -66,7 +66,7 @@
 					
 				<fieldset>
 					<legend>Ordering Information</legend>
-					<label for="event_select">Event:</label>
+					<label for="event_select">Event:</label> <!--select event option button-->
 					<select name="event_select" id="event_select">
 						<option value="A">Cookie Decoration Contest</option>
 						<option value="B">Tree Decoration Contest</option>
@@ -74,7 +74,7 @@
 						<option value="D">Breakfast with Santa</option>
 					</select><br>
 					
-					<label for="order_type">Order Type:</label>
+					<label for="order_type">Order Type:</label> <!--this is the order type selection button-->
 					<select name="order_type" id="order_type">
 						<option value="M">Member Package</option>
 						<option value="D">Donor Package</option>
@@ -89,17 +89,18 @@
 				<fieldset>
 				<legend>Payment Method</legend>
 				<div id="payment_method">
+				<!--using the div element here to clear all the inherited CSS -->
 					
 					<!-- The radio buttons below are for the payment method added a div to move them left and right-->
 							
+							<div><input type="radio" id="bill_me" name="p_method" value="bill_me"> </div>
+							<div><label id="bill_label" for="bill_me">Bill Me</label></div>
+							<div><input type="radio" id="credit_card" name="p_method" value="credit_card"></div>
+							<div><label id="credit_label" for="credit_card">Credit Card</label></div>
 							
-							<label id="bill_label" for="bill_me"><p>Bill Me</p></label>
+						
 							
-							<input type="radio" id="bill_me" name="p_method" value="bill_me"> 
-							
-							<label id="credit_label" for="credit_card"><p>Credit Card</p></label>
-							
-							<input type="radio" id="credit_card" name="p_method" value="credit_card">	
+								
 							
 				</div>
 				</fieldset>
@@ -115,9 +116,10 @@
 					</select><br>
 					
 					<label for="card_num">Card Number:</label>  <!-- i checked valid number of visa start at 4226 and discover valid # start at x64-->
-					<input type="number" title="Must contain a 16 digit number. First 4 digits start within the range 4226 to 6499 Visa&Discover valid card range." 
-						step="1" min="4226000000000000" max="6499999999999999" id="card_num" name="cardnumber" placeholder="16 digits" required  >
+					<div id="card_digits"><input type="text" title="Must contain a 16 digit number in the follow format 4226-2342-3234-2324" 
+						pattern="\d{4}[\-]\d{4}[\-]\d{4}[\-]\d{4}" step="1" id="card_num" name="cardnumber" placeholder="16 digits" maxlength="19" required  >
 					<!-- month selection below-->
+					</div>
 					<label for="expiration_date">Expiration Date:</label>
 					<div id="month"> 	<!--this div apply the month id to all the selection of month and year-->
 						
@@ -153,16 +155,16 @@
 			
 					<fieldset>
 						<legend>Submit Your Order</legend>
-							<!--submit buttons below -->
-							<input type="submit" name="submit" value="Submit"> <!-- send the data and finish-->
-							<input type="reset" name="reset" value="Reset Fields"> <!-- reset button make all the form blank again. -->
+							<!--submit buttons below to allign -->
+							<input type="submit" name="submit" value="Submit"id="submit_id"> <!-- send the data and finish-->
+							<input type="reset" name="reset" value="Reset Fields" id="reset_id"> <!-- reset button make all the form blank again. -->
 					</fieldset>
 				
 				</form>
 			</main>
 			
 			<footer>
-				<p>&copy; 2021 New Year Central. Created by Johnny White.</p>
+				<p>&copy; 2021 New Year Central. Created by Jose Emanuel Aviles Cisneros.</p>
 			</footer>
 		</div>
 	</body>

@@ -1,14 +1,14 @@
-* {
+* {			/* reseting the margin and padding from browser*/
 	margin: 0;
 	padding: 0;
 }
-label {
+label {			/* send all the label elements to float left and width 15 em and alligning to right*/
     float: left;
-    width: 15em;
+    width: 12em; /*this moves the label to the left a little more and helps the form to looks exactly as the one in the pdf*/
     text-align: right;
 }
 
-input, label, select {
+input, label, select { /* applying the properties to the selectors*/
 
 	font-size:90%;
 	margin-left: .5em;
@@ -16,49 +16,64 @@ input, label, select {
     
 }
 select#order_type input{
-	width: 15 em;
+	width: 15 em;  /* applying 15 em to the input button of order type because it was taking another size from other style*/
 }
-div#payment_method {
+div#payment_method { /*we remove all the inherited properties that come from other elements, cleaning all because it made more hard to move the radio buttons.*/
 	margin:0;
 	padding:0;
+	clear:both;
+	width:auto;
+	text-align: left;
 
 }
 
 input:required {
 	border: 2px solid orange; /* this goes to all the input elements who have the required attribute*/
 }
-div#SubmitField input{
+div#SubmitField input{ /* applying the width adjusment of the input inside the div*/
 	width:10em;
 	text-align:center;
 }
 div#SubmitField {
-
+	
 	text-align:center; /* this align the buttons to the middle of the box on submit fieldset*/
 }
-select#year_date{
-	
+input#reset_id {
+	width:10em;  /* this align the reset button to make it look more like the one in the photo of the assignment*/
+}
+input#submit_id {
+	margin-left:12.5em; /* this create a margin on the left to move all the buttons to the correct position*/
+	width:10em;	 /* this align the submit button to make it look more like the one in the photo of the assignment*/
 }
 input#bill_me { /*align the button with the label*/
-	float:left;
-	width:2em;
-	margin-top:23px;
-	text-align:center;
+	float:left; /*move the button input to the left of the label, removing this misplace the radio button*/
+	margin-top:.15em; /*aligning the button with the label*/
+	margin-right:0px;
+	margin-left:3em; /*distance from the fieldset of the left*/
+	width:1em; /*ajust the pixels for input button for bill me*/
+	float:center;
+
 }
 input#credit_card { /*align the button with the label*/
-	height:12px;
-	margin-top:23px;
-	width:2em;
-	text-align:right;
+	
+	margin-top:.15em; /*aligning the button with the label*/
+	margin-right:0px;
+	margin-left:4em; /*distance between the radio button of the left*/
+	width:1em;  /*ajust the pixels for input button for credit_card*/
+	float:left; /*this element is what put the radio button in the left of the label. carefull here.*/
 }
-label#bill_label{  /*label positioning*/
-	width: 6em;
-	height: 30px;
-	margin: 0px
+label#bill_label {  /*label positioning*/
+	width: 3.4em; /*reduce the width the of the label to move it closer to the radio button.*/
+	height: 1px; /*adding height to the */
+	margin-left:0px; /*over writting the 0.5 em inherited style */
+
 }
-label#credit_label{  /*label positioning*/
+label#credit_label{  /*label positioning, over write the 15 em inherited that applies to all elements, ID have more priority*/
 	width: 6em;
-	height: 30px;
-	margin: 0px
+	height: 1px;
+	margin: 0px;
+	
+	
 }
 input {
 	width: 15em;
@@ -68,34 +83,30 @@ input {
 	border: 1px solid black;  /* 1 px as the assignment request, in my opinion 2 px looks better. */
 
 }
-legend{
+legend{ /* coloring the legend letters and adjusting size */
 	color: grey;
 	font-weight:bold;
 	margin-bottom: .5em;
 	font-size: 85%;
 }
-fieldset {
+fieldset { /*  adjusting the fieldset that contain all the inputs*/
     margin-top: 1em;
     margin-bottom: 1em;
     padding-top: .5em;
 }
 
-input[type="radio"] {
+input[type="radio"] { /* align the width of radio button automatically*/
 	width:auto;
 }
 
 div#credit {
-		
-		
-		width: 8em;
-	
-		
+		width: 8em;	/* reducing it because default was 15 em and was too long*/
 }
-select#order_type{
+select#order_type{   /* applying the black line around because another style was overlaping the correct value*/
 	width:15em;
 	border: 1px solid black;
-}
-select#card_type{
+}	
+select#card_type{		/* applying the black line around because another style was overlaping the correct value*/	
 	width:15em;
 	border: 1px solid black;
 	
